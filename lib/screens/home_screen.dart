@@ -6,7 +6,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hello Youtube!"),
+        title: Text("Hello Youtube, to Flutter Explained!"),
       ),
       body: Container(),
     );
