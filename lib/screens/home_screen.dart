@@ -1,5 +1,6 @@
+import 'package:builder_tutorial/models/weather.dart';
 import 'package:builder_tutorial/services/weather_network_service.dart';
-import 'package:builder_tutorial/widgets/weather_widget.dart';
+import 'package:builder_tutorial/widgets/weather_data_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,10 +11,12 @@ class HomeScreen extends StatelessWidget {
         title: Text("Hello Youtube!"),
       ),
       body: FutureBuilder(
-        future: WeatherNetworkService.getWeatherData("Sydney"),
+        future: WeatherNetworkService.getWeatherData("Karlsruhe"),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
-            return WeatherWidget(weather: snapshot.data);
+            return WeatherDataWidget(
+              weather: snapshot.data,
+            );
           } else if (snapshot.hasError) {
             return Center(
               child: Icon(
