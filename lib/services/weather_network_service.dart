@@ -11,7 +11,7 @@ class WeatherNetworkService {
     /// https://home.openweathermap.org/api_keys
     /// 1. Register
     /// 2. Generate Api key
-    String openWeatherUrl = "$apiUrl?q=$cityName&appid=${Environment.apiKey}";
+    String openWeatherUrl = "$apiUrl?q=$cityName&appid=${Environment.apiKey}&units=metric";
 
     var response = await http.get(openWeatherUrl);
     await Future.delayed(Duration(seconds: 2));
