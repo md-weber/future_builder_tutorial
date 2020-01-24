@@ -23,7 +23,7 @@ class WeatherWidget extends StatelessWidget {
           weather.temperatureFeeling < 10
               ? Icon(
                   Icons.wb_cloudy,
-                  color: Colors.green,
+                  color: Colors.grey,
                   size: 128.0,
                 )
               : Icon(

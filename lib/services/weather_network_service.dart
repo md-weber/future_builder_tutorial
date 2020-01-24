@@ -14,7 +14,7 @@ class WeatherNetworkService {
     String openWeatherUrl = "$apiUrl?q=$cityName&appid=${Environment.apiKey}&units=metric";
 
     var response = await http.get(openWeatherUrl);
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 5));
 
     if (response.statusCode == 200) {
       var jsonResponse = convert.jsonDecode(response.body);
