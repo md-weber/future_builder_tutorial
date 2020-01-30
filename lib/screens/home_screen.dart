@@ -4,6 +4,19 @@ import 'package:builder_tutorial/widgets/weather_data_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
+
+  /// There was a mistake in the video
+  /// with the Future, it created a new future for every rebuild.
+  ///
+  /// I changed it here already I created the future outside of the build function
+  /// with that the future is not retriggerd everytime the build method is rebuild.
+  ///
+  /// See more:
+  /// Comment on Reddit - http://tiny.cc/tk7djz - Thanks to chrabeusz
+  /// Future Builder - https://www.youtube.com/watch?v=_JECjjT1AAY&t=2s
+
+  Future weatherFuture = WeatherNetworkService.getWeatherData("Karlsruhe");
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +24,7 @@ class HomeScreen extends StatelessWidget {
         title: Text("Hello Youtube!"),
       ),
       body: FutureBuilder(
-        future: WeatherNetworkService.getWeatherData("Karlsruhe"),
+        future: weatherFuture,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
             return WeatherDataWidget(
